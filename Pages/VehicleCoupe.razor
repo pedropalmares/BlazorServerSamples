@@ -1,0 +1,12 @@
+﻿@inject VehicleState VehicleState
+
+<button class="btn btn-primary" @onclick="SelectVehicle">@name</button>
+
+@code {
+    private string name = "Coupe";
+
+    void SelectVehicle()
+    {
+        VehicleState.SetVehicle(name);
+    }
+}

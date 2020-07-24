@@ -1,0 +1,29 @@
+﻿@page "/vehicle"
+
+@inject VehicleState VehicleState
+
+<h1>Vehicle List</h1>
+
+<p>This component demonstrates how to communicate between components using a state container and forcing the parent component to refresh.</p>
+
+<VehicleSedan />
+<VehicleCoupe />
+
+@if (VehicleState.SelectedVehicle != null)
+{
+    <div class="alert alert-primary mt-2" role="alert">
+        Your chosen vehicle is @VehicleState.SelectedVehicle.
+    </div>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        VehicleState.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        VehicleState.OnChange -= StateHasChanged;
+    }
+}
