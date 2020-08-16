@@ -1,0 +1,18 @@
+﻿<div class="p-3" style="background-color: aliceblue">
+    <h3>I'm the grandchild component</h3>
+
+    <p>@StringFromParent</p>
+    <p>@AnotherStringFromParent</p>
+    <p>@IntFromParent</p>
+</div>
+
+@code {
+    [CascadingParameter(Name = "Message")]
+    public string StringFromParent { get; set; }
+
+    [CascadingParameter(Name = "AnotherMessage")]
+    public string AnotherStringFromParent { get; set; }
+
+    [CascadingParameter]
+    public int IntFromParent { get; set; }
+}

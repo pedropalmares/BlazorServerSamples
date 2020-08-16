@@ -1,0 +1,21 @@
+﻿@page "/cascadingValue"
+
+<h1>Cascading Value</h1>
+<p>This component demonstrates how to pass a value from a component to all of its descendents.</p>
+
+<CascadingValue Value="message" Name="Message">
+    <CascadingValue Value="anotherMessage" Name="AnotherMessage">
+        <CascadingValue Value="age">
+            <div class="p-3" style="background-color: indianred">
+                <h2>I'm the parent component</h2>
+                <ChildComponent></ChildComponent>
+            </div>
+        </CascadingValue>
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    string message = "I'm a value from the parent component.";
+    string anotherMessage = "I'm another value from the parent component.";
+    int age = 10;
+}
